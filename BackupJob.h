@@ -2,20 +2,29 @@
 #ifndef BACKUPJOB_H
 #define BACKUPJOB_H
 
-#include <vector>         // Для хранения файлов
-#include "IStorage.h"     // Подключаем интерфейс хранения
+#include <vector>         
 
-// Класс для управления резервным копированием
+#include "IStorage.h"     
+
+
+
+
 class BackupJob {
 private:
-    IStorage* storage; // Указатель на используемый метод хранения
-    std::vector<BackupObject> files; // Список файлов
+    IStorage* storage; 
+
+    std::vector<BackupObject> files; 
+
 
 public:
-    explicit BackupJob(IStorage* storage); // Конструктор принимает метод хранения
-    void addFile(const BackupObject& file); // Добавляет файл в список
-    void removeFile(const std::string& filePath); // Удаляет файл
-    RestorePoint createRestorePoint(); // Создает точку восстановления
+    explicit BackupJob(IStorage* storage); 
+
+    void addFile(const BackupObject& file); 
+
+    void removeFile(const std::string& filePath); 
+
+    RestorePoint createRestorePoint(); 
+
 };
 
 #endif // BACKUPJOB_H

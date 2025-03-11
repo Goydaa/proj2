@@ -1,15 +1,15 @@
 #ifndef RESTOREPOINT_H
 #define RESTOREPOINT_H
 
-#include <vector>      // Для хранения файлов в точке восстановления
-#include "BackupObject.h" // Включаем объявление класса BackupObject
+#include <vector>      
+#include "BackupObject.h" 
 
-// Класс для представления точки восстановления
+
 class RestorePoint {
 public:
-    std::vector<BackupObject> files; // Список файлов в точке восстановления
+    std::vector<BackupObject> files; 
 
-    explicit RestorePoint(const std::vector<BackupObject>& files); // Конструктор
+    explicit RestorePoint(const std::vector<BackupObject>& files); 
 };
 
 #endif // RESTOREPOINT_H

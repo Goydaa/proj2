@@ -1,5 +1,5 @@
  
-#include "RestorePoint.h" // Подключаем заголовочный файл
+#include "RestorePoint.h" 
 
-// Конструктор, копирует список файлов
+
 RestorePoint::RestorePoint(const std::vector<BackupObject>& files) : files(files) {}

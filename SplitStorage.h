@@ -2,9 +2,9 @@
 #ifndef SPLITSTORAGE_H
 #define SPLITSTORAGE_H
 
-#include "IStorage.h" // Подключаем интерфейс хранения
+#include "IStorage.h" 
 
-// Класс для раздельного хранения файлов
+
 class SplitStorage : public IStorage {
 public:
     RestorePoint createRestorePoint(const std::vector<BackupObject>& files) override;

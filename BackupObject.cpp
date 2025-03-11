@@ -1,5 +1,5 @@
  
-#include "BackupObject.h" // Подключаем заголовочный файл
+#include "BackupObject.h" 
 
-// Конструктор, инициализирует объект с указанным путем
+
 BackupObject::BackupObject(const std::string& path) : filePath(path) {}

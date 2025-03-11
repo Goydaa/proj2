@@ -2,14 +2,14 @@
 #ifndef BACKUPOBJECT_H
 #define BACKUPOBJECT_H
 
-#include <string> // Подключаем библиотеку для работы со строками
+#include <string> 
 
-// Класс представляет объект резервного копирования (файл)
+
 class BackupObject {
 public:
-    std::string filePath; // Путь к файлу
+    std::string filePath; 
 
-    explicit BackupObject(const std::string& path); // Конструктор принимает путь к файлу
+    explicit BackupObject(const std::string& path);
 };
 
 #endif // BACKUPOBJECT_H
