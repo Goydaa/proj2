@@ -1,31 +1,26 @@
- 
 #include <iostream>
 #include "BackupJob.h"
 #include "SplitStorage.h"
 #include "SingleStorage.h"
 
 int main() {
-    
-
+    // Создаем раздельное хранилище
     SplitStorage splitStorage;
     BackupJob job(&splitStorage);
 
     job.addFile(BackupObject("file1.txt"));
     job.addFile(BackupObject("file2.txt"));
 
-    job.createRestorePoint(); 
+    job.createRestorePoint(); // Создаем точку восстановления
 
-
-    
-
+    // Создаем общее хранилище
     SingleStorage singleStorage;
     BackupJob job2(&singleStorage);
 
     job2.addFile(BackupObject("file3.txt"));
     job2.addFile(BackupObject("file4.txt"));
 
-    job2.createRestorePoint(); 
-
+    job2.createRestorePoint(); // Создаем точку восстановления
 
     return 0;
 }
