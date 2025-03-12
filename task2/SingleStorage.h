@@ -1,16 +1,12 @@
-#ifndef RESTOREPOINT_H
-#define RESTOREPOINT_H
+#ifndef SINGLESTORAGE_H
+#define SINGLESTORAGE_H
 
-#include <vector>      
-#include "BackupObject.h" 
+#include "IStorage.h" // Подключаем интерфейс хранения
 
-
-class RestorePoint {
+// Класс для общего хранения всех файлов в одном архиве
+class SingleStorage : public IStorage {
 public:
-    std::vector<BackupObject> files; 
-
-    explicit RestorePoint(const std::vector<BackupObject>& files); 
+    RestorePoint createRestorePoint(const std::vector<BackupObject>& files) override;
 };
 
-#endif // RESTOREPOINT_H
-
+#endif // SINGLESTORAGE_H
