@@ -1,26 +1,24 @@
-#include <iostream>
 #include "BackupJob.h"
-#include "SplitStorage.h"
-#include "SingleStorage.h"
+#include "LocalStorage.h"
+#include "CloudStorage.h"
+#include "BackupZipManager.h"
 
 int main() {
-    // Создаем раздельное хранилище
-    SplitStorage splitStorage;
-    BackupJob job(&splitStorage);
+    BackupJob backup;
+    
+    backup.addFile("file1.txt");
+    backup.addFile("file2.txt");
 
-    job.addFile(BackupObject("file1.txt"));
-    job.addFile(BackupObject("file2.txt"));
+    LocalStorage localStorage("backup_folder");
+    CloudStorage cloudStorage;
 
-    job.createRestorePoint(); // Создаем точку восстановления
+    backup.addStorage(&localStorage);
+    backup.addStorage(&cloudStorage);
 
-    // Создаем общее хранилище
-    SingleStorage singleStorage;
-    BackupJob job2(&singleStorage);
+    backup.executeBackup();
 
-    job2.addFile(BackupObject("file3.txt"));
-    job2.addFile(BackupObject("file4.txt"));
-
-    job2.createRestorePoint(); // Создаем точку восстановления
+    // Создание ZIP-архива
+    BackupZipManager::createZipBackup("backup_folder", "backup.zip");
 
     return 0;
 }
